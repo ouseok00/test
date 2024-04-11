@@ -1,5 +1,5 @@
 // 백준 1312 문제 - 소수
-import java.util.*;
+import java.util.scanner;
 
 public class printfHello {
 
@@ -11,16 +11,16 @@ public class printfHello {
         int b = sc.nextInt();
         int n = sc.nextInt();
 
-        int result = a % b; // 정수 영역의 나머지 구함
+        int result = a % b; //
 
-        for(int i=0; i<n-1; i++){ // 그 나머지의 10을 곱해 다음 자리 나머지를 구함
+        for(int i=0; i<n-1; i++){ //
             result = result * 10;
             result = result % b;
         }
 
         result = result * 10;
 
-        System.out.println(result/b); // 원하는 자리수에서는 더이상 나머지를 구하는 것이 아니므로 나누기를 하여 몫을 구함
+        System.out.println(result/b); //
     }
 
 }
@@ -34,13 +34,13 @@ public class printfHello {
 
         Scanner sc = new Scanner(System.in);
 
-        int X = sc.nextInt(); // 영수증에 적힌 총 금액
-        int N = sc.nextInt(); // 물건 종류의 수
+        int X = sc.nextInt(); // 
+        int N = sc.nextInt(); // 
         int total = 0;
 
         for(int i = 0; i < N; i++){
-            int a = sc.nextInt(); // 각 물건의 가격
-            int b = sc.nextInt(); // 각 물건의 개수
+            int a = sc.nextInt(); //
+            int b = sc.nextInt(); // 
             total = total + a*b;
         }
         if(total == X){
@@ -51,116 +51,3 @@ public class printfHello {
     }
 }
 
-//백준 2609번 문제 - 최대공약수와 최소공배수
-import java.util.Scanner;
-
-public class printfHello {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.sc);
-
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-
-        int d = gcd(a, b);	// 최대공약수
-
-        System.out.println(d);
-        System.out.println(a * b / d);
-
-    }
-
-    // 최대공약수 반복문
-    public static int gcd(int a, int b) {
-
-        while (b != 0) {
-            int r = a % b; // 나머지
-
-            // GCD(a, b) = GCD(b, r)이므로 변환.
-            a = b;
-            b = r;
-        }
-        return a;
-    }
-}
-
-//백준 5086번 문제 - 배수와 약수
-import java.util.Scanner;
-
-public class printfHello {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        while(true) {
-
-            int first = sc.nextInt();
-            int second = sc.nextInt();
-
-            if(first == 0 && second == 0) break;
-
-            if(second % first == 0) {
-                System.out.println("factor");
-            }
-            else if(first % second == 0) {
-                System.out.println("multiple");
-            }
-            else {
-                System.out.println("neither");
-            }
-        }
-
-    }
-}
-
-//백준 2577번 문제 - 숫자의 개수
-import java.util.Scanner;
-
-public class printfHello {
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        int value = (sc.nextInt() * sc.nextInt() * sc.nextInt());
-        String str = Integer.toString(value);
-        sc.close();
-
-        for (int i = 0; i < 10; i++) {
-            int count = 0;
-            for (int j = 0; j < str.length(); j++) {
-                if ((str.charAt(j) - '0') == i) {
-                    count++;
-                }
-            }
-            System.out.println(count);
-        }
-
-    }
-}
-
-//백준 3154번 문제 - 알람시계
-import java.util.Scanner;
-
-public class printfHello {
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        int H = sc.nextInt(); // 시
-        int M = sc.nextInt(); // 분
-        sc.close();
-
-        if(M < 45) {
-            H--;		// 시(hour) 1 감소
-            M= 60 - (45 - M); 	// 분(min) 감소
-            if(H < 0) {
-                H = 23;
-            }
-            System.out.println(H + " " + M);
-        }
-        else {
-            System.out.println(H + " " + (M - 45));
-        }
-    }
-}
